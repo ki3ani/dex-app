@@ -14,12 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('welcome');
 });
 
 Route::get('home', function () {
     return view('dashboard');
 });
+
+//Auth Routes
+Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('-login', [AuthController::class, 'Login'])->name('login'); 
+Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
+Route::post('registration', [AuthController::class, 'Registration'])->name('register'); 
+Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
 //Role Routes
 //Route::get('roles','RoleController@all');
