@@ -52,7 +52,7 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function produce(){
-        return $this->hasMany('App\Produce','user_id','user_id');
+        return $this->hasMany('App\Production','user_id','user_id');
     }
 
 }

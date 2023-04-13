@@ -31,12 +31,12 @@
                             <form>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        <label for="Name">Name</label>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Select</label>
-                                        <select class="form-control">
+                                        <label for="Breed">Breed</label>
+                                        <select  class="form-control">
                                             <option>option 1</option>
                                             <option>option 2</option>
                                             <option>option 3</option>
@@ -45,8 +45,8 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        <label for="DateofBirth">Date of Birth</label>
+                                        <input type="date" class="form-control" name="dob" id="dob" placeholder="Enter Date of Birth">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>

@@ -35,7 +35,7 @@ class AuthController extends Controller
         return view('auth.registration');
     }
       
-    public function customRegistration(Request $request)
+    public function userRegistration(Request $request)
     {  
 
        // dd($request);
@@ -79,6 +79,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect('login');
+        return Redirect('/');
     }
 }

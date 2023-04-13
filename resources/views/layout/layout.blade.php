@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <!-- <span class="badge badge-warning navbar-badge">15</span> -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item">
+                            <a href="{{ route('signout') }}" class="dropdown-item">
                                 <i class="fas fa-sign-out-alt mr-0"></i> Log out
                             </a>
                         </div>

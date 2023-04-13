@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CowController;
+use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\RoleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +24,15 @@ Route::get('/', function () {
 });
 
 Route::get('home', function () {
-    return view('dashboard');
+  return view('dashboard');
 });
 
 //Auth Routes
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('custom-login', [AuthController::class, 'Login'])->name('login.custom'); 
+Route::post('login', [AuthController::class, 'Login'])->name('login'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('custom-registration', [AuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::post('registration', [AuthController::class, 'userRegistration'])->name('register'); 
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
 //Role Routes
@@ -41,13 +46,13 @@ Route::get('Role/add','app/Http/Controllers/RoleController@add');
 
 
 //User Routes
-Route::get('users','UserController@all');
-Route::get('user/add','app/Http/Controllers/UserController@add');
+Route::get('users',[UserController::class,'all']);
+Route::get('user/add',[UserController::class,'add']);
 
 //Cow Routes
-Route::get('cows','CowController@all');
-Route::get('cow/add','app/Http/Controllers/CowController@add');
+Route::get('cows',[CowController::class,'all']);
+Route::get('cow/add',[CowController::class,'add']);
 
 //Produce Routes
-Route::get('produce','ProduceController@all');
-Route::get('produce/add','app/Http/Controllers/ProduceController@add');
+Route::get('produce',[ProduceController::class,'all']);
+Route::get('produce/add',[ProduceController::class, 'add']);

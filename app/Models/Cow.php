@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cow extends Model
 {
     use HasFactory;
-    protected $table = "cows";
+    protected $table = "Cow";
     protected $primaryKey = "cow_id";
-    protected $fillable =['name','birth_date','gender','breed'];
+    protected $fillable =['name','dob','gender','breed'];
 
 
 

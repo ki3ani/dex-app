@@ -17,7 +17,7 @@
                 <a href="{{ route('register') }}" class="btn btn-secondary btn-lg">Register</a>
                 @else
                 <li class="nav-item">
-                    <a href="/login" class="btn btn-primary btn-lg">Dashboard</a>
+                    <a href="/dashboard" class="btn btn-primary btn-lg">Dashboard</a>
                     <a class="nav-link" href="{{ route('signout') }}" class ="btn btn-danger btn-lg" >Logout</a>
                 </li>
                 @endguest
