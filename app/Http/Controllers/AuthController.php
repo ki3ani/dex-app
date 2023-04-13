@@ -37,13 +37,15 @@ class AuthController extends Controller
       
     public function customRegistration(Request $request)
     {  
+
+       // dd($request);
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:user',
-            'password' => 'required|min:8',
-            'national_id'=>'required|unique:user',
+            'national_id'=>'required|unique:User',
+            'dob'=>'required',
+            'email' => 'required|email|unique:User',
             'phone'=>'required|min:10|max:11',
-            'dob'=>'required'
+            'password' => 'required|min:8'
         ]);
            
         $data = $request->all();
@@ -56,6 +58,9 @@ class AuthController extends Controller
     {
       return User::create([
         'name' => $data['name'],
+        'national_id'=> $data['national_id'],
+        'dob'=>$data['dob'],
+        'phone'=>$data['phone'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);
