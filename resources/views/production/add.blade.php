@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('page_title','Produces - ')
+@section('title','Add Production')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Add Produce</h1>
+                        <h1 class="m-0">Add Production</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->

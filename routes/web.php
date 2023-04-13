@@ -22,10 +22,11 @@ use App\Http\Controllers\RoleController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::get('home', function () {
   return view('dashboard');
 });
+*/
 
 //Auth Routes
 Route::get('dashboard', [AuthController::class, 'dashboard']); 

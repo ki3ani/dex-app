@@ -31,12 +31,16 @@
                             <form>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="Name">Name</label>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter email">
+                                        <label for="Cow_id">Tag</label>
+                                        <input type="number" class="form-control" name="tag" id="tag" placeholder="Enter Tag Id" min="10000" max="999999" required autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Name">Cow Name</label>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Cow Name" autofocus required>
                                     </div>
                                     <div class="form-group">
                                         <label for="Breed">Breed</label>
-                                        <select  class="form-control">
+                                        <select  class="form-control" autofocus required>
                                             <option>option 1</option>
                                             <option>option 2</option>
                                             <option>option 3</option>
@@ -46,11 +50,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="DateofBirth">Date of Birth</label>
-                                        <input type="date" class="form-control" name="dob" id="dob" placeholder="Enter Date of Birth">
+                                        <input type="date" class="form-control" name="dob" id="dob" placeholder="Enter Date of Birth" autofocus required>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autofocus required>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
