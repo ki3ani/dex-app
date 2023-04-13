@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Production
+use App\Production;
 
 class ProductionController extends Controller
 {

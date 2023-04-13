@@ -36,14 +36,8 @@ Route::post('registration', [AuthController::class, 'userRegistration'])->name('
 Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 
 //Role Routes
-//Route::get('roles','RoleController@all');
-//Route::get('role/add','RoleController@add');
-
-//Route::get('Role',[RoleController::class, 'Role']);
-Route::get('Role/add','app/Http/Controllers/RoleController@add');
-
-
-
+Route::get('role',[RoleController::class, 'all']);
+Route::get('role/add',[RoleController::class,'add']);
 
 //User Routes
 Route::get('users',[UserController::class,'all']);
@@ -54,5 +48,5 @@ Route::get('cows',[CowController::class,'all']);
 Route::get('cow/add',[CowController::class,'add']);
 
 //Produce Routes
-Route::get('produce',[ProduceController::class,'all']);
-Route::get('produce/add',[ProduceController::class, 'add']);
+Route::get('production',[ProductionController::class,'all']);
+Route::get('production/add',[ProductionController::class, 'add']);

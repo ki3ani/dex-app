@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Role;
 
 class RoleController extends Controller
 {
     public function all(){
-        return view('roles.all');
+        return view('role.all');
     }
 
     public function add(){
-        return view('roles.add');
+        return view('role.add');
     }
 }

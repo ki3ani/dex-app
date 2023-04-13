@@ -10,11 +10,11 @@ class CowController extends Controller
     public function all(){
         //get all the cows
         $cows = Cow::all();
-        return view('cows.all');
+        return view('cow.all');
     }
 
     public function add(){
-        return view('cows.add');
+        return view('cow.add');
     }
 
 

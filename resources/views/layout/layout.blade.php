@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{asset('logo3.png')}}" alt="logo" height="60" width="60">
+        <img class="animation__shake" src="{{asset('logo.png')}}" alt="logo" height="96" width="96">
     </div>
 
     @section('navbar')
@@ -67,8 +67,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
                 <a href="{{URL::to('home')}}" class="brand-link">
-                    <img src="{{asset('logo3.png')}}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">{{config('app.display')}}</span>
+                    <img src="{{asset('logo.png')}}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight-light">Dairy MS</span>
                 </a>
 
                 <!-- Sidebar -->
@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <img src="{{asset('dist/img/avatar3.png')}}" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">{{'User Name'}}</a>
+                            <a href="#" class="d-block"> {{ ucfirst(strtolower(Auth::user()->name))  }}</a>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             -->
 
                             <li class="nav-item">
-                                <a href="{{URL::to('roles')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
+                                <a href="{{URL::to('role')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-user-cog"></i>
                                     <p>
                                         Roles
@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{URL::to('produce')}}" class="nav-link {{ (request()->is('produce*')) ? 'active' : '' }}">
+                                <a href="{{URL::to('production')}}" class="nav-link {{ (request()->is('produce*')) ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-hand-holding-water"></i>
                                     <p>
                                         Produce
