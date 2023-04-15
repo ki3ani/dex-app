@@ -19,6 +19,7 @@ class CreateRoleTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('level');
+            $table->integer('assigned');
             $table->timestamps();
         });
     }
