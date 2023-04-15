@@ -16,7 +16,10 @@ class CowController extends Controller
     public function add(){
         return view('cow.add');
     }
-
+    public function register(Request $request){
+        dd($request);
+        return view('cow.all');
+    }
 
 
    public function delete($id){

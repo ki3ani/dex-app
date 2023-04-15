@@ -28,7 +28,8 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form>
+                            <form action="{{ route('newcow') }}" method="POST">
+                                @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="Cow_id">Tag</label>
@@ -40,22 +41,28 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="Breed">Breed</label>
-                                        <select  class="form-control" autofocus required>
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+                                        <select  name="breed" id="breed" class="form-control" autofocus required>
+                                            <option>Ayshire</option>
+                                            <option>Dexter</option>
+                                            <option>Fleckvieh</option>
+                                            <option>Freisan</option>
+                                            <option>Guernseys</option>
+                                            <option>Holstein</option>
+                                            <option>Jersey</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="DateofBirth">Date of Birth</label>
-                                        <input type="date" class="form-control" name="dob" id="dob" placeholder="Enter Date of Birth" autofocus required>
+                                        <input type="date" class="form-control" name="dob" id="dob" placeholder="Enter Date of Birth" max="<?= date('Y-m-d'); ?>" autofocus required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autofocus required>
-                                    </div>
+                                        <label for="DateofBirth">Gender</label>
+                                        <select  name="gender" id="gender" class="form-control" autofocus required>
+                                            <option>Female</option>
+                                            <option>Male</option>
+                                            
+                                        </select></div>
+                                    
                                 </div>
                                 <!-- /.card-body -->
 

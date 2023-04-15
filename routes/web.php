@@ -47,6 +47,7 @@ Route::get('user/add',[UserController::class,'add']);
 //Cow Routes
 Route::get('cows',[CowController::class,'all']);
 Route::get('cow/add',[CowController::class,'add']);
+Route::post('cow/new',[CowController::class,'register']);
 
 //Produce Routes
 Route::get('production',[ProductionController::class,'all']);
