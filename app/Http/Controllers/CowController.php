@@ -23,8 +23,15 @@ class CowController extends Controller
             'gender' => 'required',
             'breed'=>'required'
         ]);
-        $lastID=Cow::query()->orderByDesc('tag')->first();
-        $nextID = ($lastID->tag)+1;
+      $nextID;
+        if(empty(Cow::query()->orderByDesc('tag')->first())){
+            $lastID = 9999;
+            $nextID = $lastID;
+                }else{
+            $lastID = Cow::query()->orderByDesc('tag')->first();
+            $nextID = ($lastID->tag)+1;
+        }
+        
         $request->request->add(['tag' => $nextID]);
         $data = $request->all();
         $check = $this->create($data);

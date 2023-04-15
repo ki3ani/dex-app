@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('page_title','Users - ')
+@section('title','Users - ')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
