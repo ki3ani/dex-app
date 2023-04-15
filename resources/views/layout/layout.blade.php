@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             -->
 
                             <li class="nav-item">
-                                <a href="{{URL::to('role')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
+                                <a href="{{URL::to('roles')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-user-cog"></i>
                                     <p>
                                         Roles

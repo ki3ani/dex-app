@@ -23,30 +23,36 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{URL::to('user/add')}}" class="btn btn-primary mb-2">Add <i class="fa fa-plus"></i> </a>
+                                
 
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th style="width: 10px">#</th>
-                                        <th>h1</th>
-                                        <th>h2</th>
-                                        <th>h3</th>
+                                        
+                                        <th>Name</th>
+                                        <th>National ID</th>
+                                        <th>Date of Birth</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
                                         <th style="width: 15px">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                       
+                                        @foreach ($Users as $user) 
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+
+                                            <td>{{  $user->name }}</td>
+                                            <td>{{  $user->national_id  }}</td>
+                                            <td>{{  $user->dob  }}</td>
+                                            <td>{{  $user->phone  }}</td>
+                                            <td>{{  $user->role_id }}</td>
                                             <td>
                                                 <a href="#"><i class="fa fa-edit"></i> </a>
                                                 <a href="#"><i class="fa fa-trash"></i> </a>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

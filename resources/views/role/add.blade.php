@@ -33,15 +33,15 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter Role Name">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Role Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea  class="form-control" id="description" placeholder="Enter Detailed Role Description" cols="60" rows="5"></textarea>
+                                        <textarea  class="form-control" id="description" name="description" placeholder="Enter Detailed Role Description" cols="60" rows="5"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="level">Priviledge Level(1-milker,2-supervisor,3-admin)</label>
-                                        <select class="form-control">
+                                        <label for="level">Priviledge Level(1-Operational,2-Supervisor,3-Admin)</label>
+                                        <select class="form-control" name="level" id="level">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
