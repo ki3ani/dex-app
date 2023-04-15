@@ -10,7 +10,7 @@ class Cow extends Model
     use HasFactory;
     protected $table = "Cow";
     protected $primaryKey = "tag";
-    protected $fillable =['name','dob','gender','breed'];
+    protected $fillable =["tag",'name','dob','gender','breed'];
 
 
 

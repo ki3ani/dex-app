@@ -28,25 +28,29 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th style="width: 10px">#</th>
-                                        <th>h1</th>
-                                        <th>h2</th>
-                                        <th>h3</th>
+                                        <th style="width: 10px">Tag</th>
+                                        <th>Name</th>
+                                        <th>Breed</th>
+                                        <th>Gender</th>
+                                        <th>Date of Birth</th>
                                         <th style="width: 15px">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-edit"></i> </a>
-                                                <a href="#"><i class="fa fa-trash"></i> </a>
-                                            </td>
-                                        </tr>
-
+                                        
+                                        @foreach ($cows as $cow) 
+                                            <tr>
+                                                <td>{{ $cow->tag }}</td>
+                                                <td>{{ $cow->name }}</td>
+                                                <td>{{ $cow->breed }}</td>
+                                                <td>{{ $cow->gender }}</td>
+                                                <td>{{ $cow->dob }}</td>
+                                                <td>
+                                                    <a href="#"><i class="fa fa-edit"></i> </a>
+                                                    <a href="#"><i class="fa fa-trash"></i> </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -31,10 +31,7 @@
                             <form action="{{ route('newcow') }}" method="POST">
                                 @csrf
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="Cow_id">Tag</label>
-                                        <input type="number" class="form-control" name="tag" id="tag" placeholder="Enter Tag Id" min="10000" max="999999" required autofocus>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label for="Name">Cow Name</label>
                                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter Cow Name" autofocus required>
