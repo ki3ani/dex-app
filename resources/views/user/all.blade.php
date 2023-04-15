@@ -28,7 +28,7 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        
+                                        <th>#</th>
                                         <th>Name</th>
                                         <th>National ID</th>
                                         <th>Date of Birth</th>
@@ -41,7 +41,7 @@
                                        
                                         @foreach ($Users as $user) 
                                         <tr>
-
+                                            <td>{{  $user->user_id }}</td>
                                             <td>{{  $user->name }}</td>
                                             <td>{{  $user->national_id  }}</td>
                                             <td>{{  $user->dob  }}</td>
