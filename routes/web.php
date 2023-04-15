@@ -39,6 +39,8 @@ Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
 //Role Routes
 Route::get('role',[RoleController::class, 'all']);
 Route::get('role/add',[RoleController::class,'add']);
+Route::post('role/new',[RoleController::class,'register'])->name('newrole');
+
 
 //User Routes
 Route::get('users',[UserController::class,'all']);
