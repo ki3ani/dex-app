@@ -13,8 +13,14 @@ class CreateProductionTable extends Migration
      */
     public function up()
     {
-        Schema::create('Produce', function (Blueprint $table) {
+        Schema::create('Production', function (Blueprint $table) {
             $table->id();
+            $table->string('production_id')->unique();
+            $table->string('cow_id');
+            $table->date('production_date');
+            $table->string('production_period');
+            $table->float('amount');
+            $table->string('user_id');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateProductionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Produce');
+        Schema::dropIfExists('Production');
     }
 }

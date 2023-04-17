@@ -54,3 +54,4 @@ Route::post('cow/new',[CowController::class,'register'])->name('newcow');
 //Produce Routes
 Route::get('production',[ProductionController::class,'all']);
 Route::get('production/add',[ProductionController::class, 'add']);
+Route::get('production/new',[ProductionController::class,'register'])->name('newproduce');

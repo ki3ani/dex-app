@@ -27,30 +27,36 @@
                                 <h3 class="card-title">Details</h3>
                             </div>
                             <!-- /.card-header -->
+                            <!--,'cow_id','production_date','production_period','amount','user_id' -->
                             <!-- form start -->
                             <form>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Select</label>
-                                        <select class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+                                        <label for="exampleInputEmail1">Cow ID</label>
+                                        <select class="form-control" name="tag" id="tag">
+                                            @foreach($cows as $cow)
+                                            <option value="{{ $cow->tag }}">{{ $cow->tag.'-'.($cow->name)}}</option>                                    
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        <label for="Production Date">Production Date</label>
+                                        <input type="date" class="form-control" id="exampleInputEmail1" value="now()->format('d-m-Y'))" readonly>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <label for="Production Period">Production Period</label>
+                                        <select class="form-control" name="production_period" id="production_period">
+                                            <option>Morning</option>
+                                            <option>Mid Day</option>
+                                            <option>Evening</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Amount">Amount</label>
+                                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Production " min="0" max="30">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Milker">Milker</label>
+                                        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Milker" value="{{ ucfirst(strtolower(Auth::user()->name)) }}">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

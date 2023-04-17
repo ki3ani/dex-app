@@ -21,7 +21,11 @@ class CowController extends Controller
             'name' => 'required',
             'dob'=>'required',
             'gender' => 'required',
-            'breed'=>'required'
+            'breed'=>'required',
+            'parent_tag'=>'required',
+            'currentState'=>'required',
+            
+            
         ]);
       $nextID;
         if(empty(Cow::query()->orderByDesc('tag')->first())){

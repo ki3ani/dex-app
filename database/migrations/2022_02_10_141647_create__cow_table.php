@@ -20,6 +20,9 @@ class CreateCowTable extends Migration
             $table->date('dob');
             $table->string('gender');
             $table->string('breed');
+            $table->string('parent_tag');
+            $table->string('currentState');
+            $table->date('served_on');
             $table->timestamps();
         });
     }
