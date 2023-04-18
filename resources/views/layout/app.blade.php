@@ -65,7 +65,7 @@
         @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
         body  {
-            background-image: url('http://dairy.co.ke/dist/img/bg.jpg');
+            background-image: url('/dist/img/bg.jpg');
         background-size:cover;
                 -webkit-animation: slidein 20s;
                 animation: slidein 30s;
@@ -130,6 +130,6 @@
                 @yield('content');
                
       
-        <div id="footer"><span>Shardx Solutions <br>&copy;2023 </span></div>
+        <div id="footer"><span>{{config('app.display')}} &copy; {{date('Y')}}</span></div>
     </body>
 </html>

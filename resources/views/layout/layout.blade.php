@@ -163,7 +163,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- Default to the left -->
                 <small>
-                    <strong>Copyright &copy; </strong> 
+                    <strong></strong> 
                 </small>
             </footer>
     @show
