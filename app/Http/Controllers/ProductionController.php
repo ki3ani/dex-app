@@ -51,9 +51,7 @@ class ProductionController extends Controller
         $date = str_replace('/', '-', $data['production_date']);
         $newDate = date("Y-m-d", strtotime($date));
         $data['production_date']=$newDate;
-        if(empty($data['amount'])){
-            $data['amount']=0;
-        }
+     
         return Production::create([
             'production_id' => $data['production_id'],
             'tag'=> $data['tag'],
