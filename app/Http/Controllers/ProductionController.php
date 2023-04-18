@@ -22,10 +22,10 @@ class ProductionController extends Controller
         case $timeofday < 10:
             $production_time="Morning";
             break;
-        case $timeofday>10 && $timeofday<15:
+        case $timeofday>=10 && $timeofday<15:
             $production_time="Mid Day";
             break;
-        case $timeofday>15:
+        case $timeofday>=15:
             $production_time="Evening";
             break;
        }

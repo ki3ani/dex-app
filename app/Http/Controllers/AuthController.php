@@ -5,7 +5,13 @@ use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Cow;
+use App\Models\Production;
+use App\Models\Roles;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+
 
 class AuthController extends Controller
 {
@@ -69,9 +75,26 @@ class AuthController extends Controller
     
     public function dashboard()
     {
+        $timeofday=(date('H'));
+       $production_time;
+       switch($timeofday){
+        case $timeofday < 10:
+            $production_time="Morning";
+            break;
+        case $timeofday>=10 && $timeofday<15:
+            $production_time="Mid Day";
+            break;
+        case $timeofday>=15:
+            $production_time="Evening";
+            break;
+       }
         
         if(Auth::check()){
-            return view('dashboard');
+           $production=DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'" AND production_period="'.$production_time.'"');
+           $daysproduction = DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'"');
+           $herd=Cow::all()->count();
+           $users=User::all()->count();
+            return view('dashboard',compact('production','daysproduction','production_time','herd','users'));
         }
   
         return redirect("login")->withSuccess('You are not allowed to access');
