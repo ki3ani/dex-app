@@ -29,7 +29,7 @@ class ProductionController extends Controller
             $production_time="Evening";
             break;
        }
-        $cows=DB::select('select tag,name from Cow WHERE Not EXISTS ( Select Tag from Production where production_date="'.date('Y-m-d').'" AND production_period="'.$production_time.'" AND Cow.tag=Production.tag )');
+        $cows=DB::select('select tag,name from Cow WHERE currentState="Active Production" AND NOT EXISTS ( Select Tag from Production where production_date="'.date('Y-m-d').'" AND production_period="'.$production_time.'" AND Cow.tag=Production.tag )');
         return view('production.add',compact('cows'));
     }
     public function register(Request $request){
