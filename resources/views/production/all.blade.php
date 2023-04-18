@@ -27,26 +27,29 @@
 
                                 <table class="table table-bordered">
                                     <thead>
+
+
+                                    
                                     <tr>
-                                        <th style="width: 10px">#</th>
-                                        <th>h1</th>
-                                        <th>h2</th>
-                                        <th>h3</th>
-                                        <th style="width: 15px">Actions</th>
+                                        <th style="width: 10px">ID</th>
+                                        <th>Cow</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Amount</th>
+                                        <th>Recorded By</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($production as $product)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <a href="#"><i class="fa fa-edit"></i> </a>
-                                                <a href="#"><i class="fa fa-trash"></i> </a>
-                                            </td>
+                                            <td>{{ $product->production_id }}</td>
+                                            <td>{{ $product->tag }}</td>
+                                            <td>{{ $product->production_date }}</td>
+                                            <td>{{ $product->production_period }}</td>
+                                            <td>{{ $product->amount }}</td>
+                                            <td>{{ $product->user_id }}</td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -33,7 +33,7 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Cow ID</label>
+                                        <label for="exampleInputEmail1">Cow ID (List of Unmilked Cows)</label>
                                         <select class="form-control" name="tag" id="tag">
                                             @foreach($cows as $cow)
                                             <option value="{{ $cow->tag }}">{{ $cow->tag.'-'.($cow->name)}}</option>                                    
@@ -46,11 +46,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="Production Period">Production Period</label>
-                                        <select class="form-control" name="production_period" id="production_period">
-                                            <option>Morning</option>
-                                            <option>Mid Day</option>
-                                            <option>Evening</option>
-                                        </select>
+                                        <input type="text" class="form-control" id="production_period" name="production_period" value="{{ $production_time }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="Amount">Amount</label>

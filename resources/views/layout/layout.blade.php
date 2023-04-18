@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{URL::to('production')}}" class="nav-link {{ (request()->is('produce*')) ? 'active' : '' }}">
+                                <a href="{{URL::to('productions')}}" class="nav-link {{ (request()->is('produce*')) ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-hand-holding-water"></i>
                                     <p>
                                         Produce

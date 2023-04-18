@@ -12,7 +12,7 @@ class ProductionController extends Controller
 {
     public function all(){
         $production = Production::orderBy('created_at', 'desc')->paginate(20);
-        return view('production',compact('production'));
+        return view('production.all',compact('production'));
     }
 
     public function add(){
@@ -30,7 +30,7 @@ class ProductionController extends Controller
             break;
        }
         $cows=DB::select('select tag,name from Cow WHERE currentState="Active Production" AND NOT EXISTS ( Select Tag from Production where production_date="'.date('Y-m-d').'" AND production_period="'.$production_time.'" AND Cow.tag=Production.tag )');
-        return view('production.add',compact('cows'));
+        return view('production.add',compact('cows','production_time'));
     }
     public function register(Request $request){
         $request->validate([
@@ -44,7 +44,7 @@ class ProductionController extends Controller
         $data = $request->all();
         $check = $this->create($data);
         $cows=$data;
-        return redirect ('production');    
+        return redirect ('productions');    
     }
 
    private function create(array $data){
