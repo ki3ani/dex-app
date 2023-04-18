@@ -11,8 +11,8 @@ use Illuminate\Support\Str;
 class ProductionController extends Controller
 {
     public function all(){
-        
-        return view('production.all');
+        $production = Production::orderBy('created_at', 'desc')->paginate(20);
+        return view('production',compact('production'));
     }
 
     public function add(){
