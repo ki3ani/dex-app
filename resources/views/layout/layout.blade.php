@@ -41,6 +41,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
+                        <a class="nav-link"   href="{{ url('/dashboard') }}" title="home">
+                        <i class="fa fa-home"></i>
+                        <!-- <span class="badge badge-warning navbar-badge">15</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="#" title="Logged in user">
                             <i class="far fa-user"></i>
                             <!-- <span class="badge badge-warning navbar-badge">15</span> -->
