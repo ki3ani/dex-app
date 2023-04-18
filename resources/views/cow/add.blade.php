@@ -58,8 +58,21 @@
                                             <option>Female</option>
                                             <option>Male</option>
                                             
-                                        </select></div>
-                                    
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Name">Parent Tag</label>
+                                        <input type="text" class="form-control" name="parent_tag" id="parent_tag" placeholder="Enter Parent Tag" autofocus required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Name">Cow Name</label>
+                                        <select  name="currentState" id="currentState" class="form-control" autofocus required>
+                                            <option>Active Production</option>
+                                            <option>Dry</option>
+                                        </select>                                    
+                                    </div>
+                                        
+
                                 </div>
                                 <!-- /.card-body -->
 

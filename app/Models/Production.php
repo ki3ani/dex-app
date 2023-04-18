@@ -10,5 +10,5 @@ class Production extends Model
     use HasFactory;
     protected $table = "Production";
     protected $primaryKey = "production_id";
-    protected $fillable = ['production_id','cow_id','production_date','production_period','amount','user_id'];
+    protected $fillable = ['production_id','tag','production_date','production_period','amount','user_id'];
 }

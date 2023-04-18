@@ -23,19 +23,17 @@ class CowController extends Controller
             'gender' => 'required',
             'breed'=>'required',
             'parent_tag'=>'required',
-            'currentState'=>'required',
-            
-            
+            'currentState'=>'required'                     
         ]);
-      $nextID;
+        $nextID;
         if(empty(Cow::query()->orderByDesc('tag')->first())){
             $lastID = 9999;
             $nextID = $lastID;
-                }else{
+        }else{
             $lastID = Cow::query()->orderByDesc('tag')->first();
-            $nextID = ($lastID->tag)+1;
+            $nextID = ($lastID->tag)+random_int(1,999);
         }
-        
+       
         $request->request->add(['tag' => $nextID]);
         $data = $request->all();
         $check = $this->create($data);
@@ -50,6 +48,8 @@ class CowController extends Controller
         'dob'=>$data['dob'],
         'gender'=>$data['gender'],
         'breed' => $data['breed'],
+        'parent_tag'=>$data['parent_tag'],
+        'currentState'=>$data['currentState']
         ]);
    }
    public function delete($id){

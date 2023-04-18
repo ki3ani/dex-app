@@ -16,7 +16,7 @@ class CreateProductionTable extends Migration
         Schema::create('Production', function (Blueprint $table) {
             $table->id();
             $table->string('production_id')->unique();
-            $table->string('cow_id');
+            $table->string('tag');
             $table->date('production_date');
             $table->string('production_period');
             $table->float('amount');

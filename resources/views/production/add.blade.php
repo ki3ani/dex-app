@@ -29,18 +29,20 @@
                             <!-- /.card-header -->
                             <!--,'cow_id','production_date','production_period','amount','user_id' -->
                             <!-- form start -->
-                            <form>
+                            <form action="{{ route('newproduce') }}" method="POST">
+                                @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Cow ID</label>
                                         <select class="form-control" name="tag" id="tag">
                                             @foreach($cows as $cow)
                                             <option value="{{ $cow->tag }}">{{ $cow->tag.'-'.($cow->name)}}</option>                                    
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="Production Date">Production Date</label>
-                                        <input type="date" class="form-control" id="exampleInputEmail1" value="now()->format('d-m-Y'))" readonly>
+                                        <input type="text" class="form-control" id="production_date" name="production_date" value="{{ now()->format('d-m-Y') }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="Production Period">Production Period</label>

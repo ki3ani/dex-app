@@ -23,7 +23,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{URL::to('produce/add')}}" class="btn btn-primary mb-2">Add <i class="fa fa-plus"></i> </a>
+                                <a href="{{URL::to('production/add')}}" class="btn btn-primary mb-2">Add <i class="fa fa-plus"></i> </a>
 
                                 <table class="table table-bordered">
                                     <thead>
