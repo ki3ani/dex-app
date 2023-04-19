@@ -94,6 +94,8 @@ class AuthController extends Controller
            $daysproduction = DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'"');
            $herd=Cow::all()->count();
            $users=User::all()->count();
+           $productionlist=Production::all();
+           dd($productionlist['production_date']->values());
             return view('dashboard',compact('production','daysproduction','production_time','herd','users'));
         }
   
