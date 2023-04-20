@@ -83,7 +83,7 @@
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
-               
+               {{ dd($productionvalues[0]); }}
             <!-- LINE CHART -->
             <div class="card card-info">
                 <div class="card-header">
@@ -108,25 +108,7 @@
               <!-- /.card -->
             </div>
               <!-- BAR CHART -->
-            <div class="card card-success">
-                <div class="card-header">
-                  <h3 class="card-title">Bar Chart</h3>
-  
-                  <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                    <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block;" class="chartjs-render-monitor" width="468" height="250"></canvas>
-                  </div>
-                </div>
-            </div>
+            
         </section>
         <!-- /.content -->
     </div>
@@ -136,7 +118,7 @@
 @push('scripts')
 <script src="{{  asset('dist/js/demo.js') }}"></script>
 <script src="{{  asset('plugins/chart.js/Chart.min.js')  }}"></script>
-<script>
+<script type="text/javascript">
         $(function () {
         /* ChartJS
         
@@ -162,12 +144,13 @@
         }]
       }
     }
-
+    var labels =  JSON.parse(({{ $labels }}).replace(/&quot;/g,'"'));
+    console.log(labels);
         var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels  : labels,
       datasets: [
         {
-          label               : 'Digital Goods',
+          label               : labels[0]',
           backgroundColor     : 'rgba(60,141,188,0.9)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
@@ -178,7 +161,7 @@
           data                : [28, 48, 40, 19, 86, 27, 90]
         },
         {
-          label               : 'Electronics',
+          label               : labels[1],
           backgroundColor     : 'rgba(210, 214, 222, 1)',
           borderColor         : 'rgba(210, 214, 222, 1)',
           pointRadius         : false,

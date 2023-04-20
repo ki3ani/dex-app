@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="Amount">Amount</label>
-                                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Production " min="0" max="30">
+                                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Production " min="0" max="30" autofocus>
                                     </div>
                                     <div class="form-group">
                                         <label for="Milker">Milker</label>
