@@ -83,7 +83,6 @@
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
-               {{ dd($productionvalues[0]); }}
             <!-- LINE CHART -->
             <div class="card card-info">
                 <div class="card-header">
@@ -144,13 +143,23 @@
         }]
       }
     }
-    var labels =  JSON.parse(({{ $labels }}).replace(/&quot;/g,'"'));
-    console.log(labels);
+    var labels =  JSON.parse({{ $labels }});
+   // var values1=JSON.parse({{ $productionvalues }});
+   // var values2=JSON.parse({{ $productionvalues }});
+    //var values3=JSON.parse({{ $productionvalues }});
+    
+   // labels=labels.replace(/&quot;/g,''');
+    //values1=values1.replace(/&quot;/g,''');
+   // values2=values2.replace(/&quot;/g,''');
+   // values3=values3.replace(/&quot;/g,''');
+
+
+      console.log(labels);
         var areaChartData = {
       labels  : labels,
       datasets: [
         {
-          label               : labels[0]',
+          label               : labels[0],
           backgroundColor     : 'rgba(60,141,188,0.9)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
@@ -158,7 +167,7 @@
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
+          data                : values1[0]
         },
         {
           label               : labels[1],
@@ -169,7 +178,17 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
+          data                : values2[1]
+        },{
+          label               : labels[2],
+          backgroundColor     : 'rgba(220,0,0, 1)',
+          borderColor         : 'rgba(220,0,0, 1)',
+          pointRadius         : false,
+          pointColor          : 'rgba(220,0,0, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,0,0,1)',
+          data                : values3[2]
         },
       ]
     }
