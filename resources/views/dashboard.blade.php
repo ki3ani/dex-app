@@ -115,8 +115,8 @@
 @endsection
 
 @push('scripts')
-<script src="{{  asset('dist/js/demo.js') }}"></script>
-<script src="{{  asset('plugins/chart.js/Chart.min.js')  }}"></script>
+<script src="{{  asset('/dist/js/demo.js') }}"></script>
+<script src="{{  asset('/plugins/chart.js/Chart.min.js')  }}"></script>
 <script type="text/javascript">
         $(function () {
         /* ChartJS
@@ -143,52 +143,72 @@
         }]
       }
     }
-    var labels =  JSON.parse({{ $labels }});
-   // var values1=JSON.parse({{ $productionvalues }});
-   // var values2=JSON.parse({{ $productionvalues }});
-    //var values3=JSON.parse({{ $productionvalues }});
-    
-   // labels=labels.replace(/&quot;/g,''');
-    //values1=values1.replace(/&quot;/g,''');
-   // values2=values2.replace(/&quot;/g,''');
-   // values3=values3.replace(/&quot;/g,''');
+    var labels =  {!! json_encode($labels) !!};
+  var values={!! json_encode($productionvalues,true) !!};
+  //values=JSON.parse(JSON.stringify(values));
+  var values1=[];
+  var values2=[];
+  var values3=[];
+  var areaChartData=[];
+
+  for(var x=0;x<values.length;x++){
+    for(var y =0; y < values[x].length; y++){
+      switch(x){
+        case 0:
+          values1.push(values[x][y].amount);
+          //console.log('1st day'+values1);
+
+          break;
+        case 1:
+          values2.push(values[x][y].amount);
+         // console.log('2nd day'+values2);
+
+          break;
+        case 2:
+          values3.push(values[x][y].amount);
+         // console.log('3rd day'+values3);
+          break;
+      }
+
+    }
+  }
+  console.log(values[0].length);
 
 
-      console.log(labels);
-        var areaChartData = {
-      labels  : labels,
-      datasets: [
+  var areaChartData = {
+  labels  : labels,
+  datasets: [
         {
           label               : labels[0],
-          backgroundColor     : 'rgba(60,141,188,0.9)',
+          backgroundColor     : 'rgba(255,255,255,0.8)',
           borderColor         : 'rgba(60,141,188,0.8)',
           pointRadius          : false,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : values1[0]
+          data                : values1,
         },
         {
           label               : labels[1],
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
+          backgroundColor     : 'rgba(255,255,255, 1)',
+          borderColor         : 'rgba(210, 214, 222, 0)',
           pointRadius         : false,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : values2[1]
+          data                : values2,
         },{
           label               : labels[2],
-          backgroundColor     : 'rgba(220,0,0, 1)',
+          backgroundColor     : 'rgba(255,255,255, 1)',
           borderColor         : 'rgba(220,0,0, 1)',
           pointRadius         : false,
           pointColor          : 'rgba(220,0,0, 1)',
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,0,0,1)',
-          data                : values3[2]
+          data                : values3,
         },
       ]
     }
@@ -208,7 +228,9 @@
     
         
         })
-    </script>
+
+        
+</script>
 @endpush
 
 @push('styles')
