@@ -103,9 +103,9 @@ class AuthController extends Controller
             $productionlist=$productionlist->groupby('production_date');
             $productionlist->all();
             //$dates = $this->generateDates($start, $end); // you fill zero valued dates
-            $labels=$productionlist->keys();
-            $productionvalues=$productionlist->values();
-            //dd($productionvalues[0][0]);
+            $labels=json_encode($productionlist->keys());
+            $productionvalues=json_encode($productionlist->values());
+            //dd($labels,);
             return view('dashboard',compact('production','daysproduction','production_time','herd','users','labels','productionvalues'));
         }
   
