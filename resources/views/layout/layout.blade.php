@@ -109,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             -->
                             <li class="nav-item">
                                 <a href="{{URL::to('/')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-user-home"></i>
+                                    <i class="nav-icon fas fa-home"></i>
                                     <p>
                                         Home
                                     </p>
@@ -117,8 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                             <li class="nav-item">
                                 <a href="{{URL::to('/dashboard')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-user-fa-tasks"></i>
-                                    <p>
+                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>                                    <p>
                                         Dashboard
                                     </p>
                                 </a>
@@ -142,9 +141,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                             <li class="nav-item">
                                 <a href="{{URL::to('cows')}}" class="nav-link {{ (request()->is('cow*')) ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-horse-head"></i>
-                                    <p>
-                                        Cows
+                                    <i class="nav-icon fas fa-list"></i>                                    <p>
+                                        Herd
                                     </p>
                                 </a>
                             </li>
