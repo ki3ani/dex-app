@@ -92,7 +92,16 @@
 @endsection
 
 @push('scripts')
+<<<<<<< Updated upstream
 
+=======
+<script src="{{  asset('/dist/js/demo.js') }}"></script>
+<script src="{{  asset('/plugins/chart.js/Chart.min.js')  }}"></script>
+<script type="text/javascript">
+
+        
+</script>
+>>>>>>> Stashed changes
 @endpush
 
 @push('styles')
