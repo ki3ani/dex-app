@@ -42,7 +42,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link"   href="{{ url('/dashboard') }}" title="home">
-                        <i class="fa fa-home"></i>
+                        <i class="fa fa-home">Dashboard Home</i>
                         <!-- <span class="badge badge-warning navbar-badge">15</span> -->
                         </a>
                     </li>
@@ -74,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Brand Logo -->
                 <a href="{{URL::to('/')}}" class="brand-link">
                     <img src="{{asset('logo.png')}}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">Dairy MS</span>
+                    <span class="brand-text font-weight-light">DairyMS</span>
                 </a>
 
                 <!-- Sidebar -->
@@ -107,21 +107,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 }
 
                             -->
-                            <li class="nav-item">
-                                <a href="{{URL::to('/')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-home"></i>
-                                    <p>
-                                        Home
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{URL::to('/dashboard')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-chalkboard-teacher"></i>                                    <p>
-                                        Dashboard
-                                    </p>
-                                </a>
-                            </li>
                             
                             <li class="nav-item">
                                 <a href="{{URL::to('roles')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
@@ -141,7 +126,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                             <li class="nav-item">
                                 <a href="{{URL::to('cows')}}" class="nav-link {{ (request()->is('cow*')) ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-list"></i>                                    <p>
+                                    <i class="nav-icon fas fa-horse-head"></i>
+                                    <p>
                                         Herd
                                     </p>
                                 </a>
@@ -198,7 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-<!-- Additional Scripts -->
+
 @stack('scripts')
 </body>
 </html>

@@ -10,6 +10,8 @@ use App\Models\Production;
 use App\Models\Roles;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
+use Carbon\Carbon;
 
 
 
@@ -90,16 +92,36 @@ class AuthController extends Controller
        }
         
         if(Auth::check()){
-           $production=DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'" AND production_period="'.$production_time.'"');
-           $daysproduction = DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'"');
-           $herd=Cow::all()->count();
-           $users=User::all()->count();
-            return view('dashboard',compact('production','daysproduction','production_time','herd','users'));
+            $start = Carbon::today()->subDays(7);
+            $end = Carbon::yesterday();
+            $production=DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'" AND production_period="'.$production_time.'"');
+            $daysproduction = DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'"');
+            $herd=Cow::all()->count();
+            $users=User::all()->count();
+            $productionlist=collect(DB::select('SELECT tag,production_date,sum(amount) AS amount FROM Production GROUP BY tag,production_date ORDER By production_date ASC'));
+            //$productionlist=$productionlist->groupby('production_date');
+            $productionlist=$productionlist->groupby('production_date');
+            $productionlist->all();
+            //$dates = $this->generateDates($start, $end); // you fill zero valued dates
+            $labels=$productionlist->keys();
+            $productionvalues=$productionlist->values();
+            //dd($labels,);
+            return view('dashboard',compact('production','daysproduction','production_time','herd','users','labels','productionvalues'));
         }
   
         return redirect("login")->withSuccess('You are not allowed to access');
     }
-    
+    private function generateDates(Carbon $startDate, Carbon $endDate, $format = 'Y-m-d')
+{
+    $dates = collect();
+    $startDate = $startDate->copy();
+
+    for ($date = $startDate; $date->lte($endDate); $date->addDay()) {
+        $dates->put($date->format($format), 0);
+    }
+
+    return $dates;
+}
     public function signOut() {
         Session::flush();
         Auth::logout();
