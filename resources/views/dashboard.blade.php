@@ -27,12 +27,12 @@
                             <div class="inner">
                                 <h3>{{ $production[0]->sum  }} Litres</h3>
 
-                                <p>Producted at {{ $production_time }} <br> {{ date('d-m-Y') }}</p>
+                                <p><b>Producted at {{ $production_time }} <br> {{ date('d-m-Y') }}</b></p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer"><i class="fas fa-balance-scale"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -42,12 +42,12 @@
                             <div class="inner">
                                 <h3>{{  $daysproduction[0]->sum }} Litres</h3>
 
-                                <p>Milked Today <br> {{ date('d-m-Y') }}</p>
+                                <p><b>Milked Today <br> {{ date('d-m-Y') }}</b></p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer"><i class="fas fa-balance-scale"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -57,12 +57,12 @@
                             <div class="inner">
                                 <h3>{{ $herd }}</h3>
 
-                                <p>Size of the herd being milked in our farm</p>
+                                <p><b>Size of the herd being milked in our farm</b></p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer"><i class="fas fa-address-card"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -72,12 +72,12 @@
                             <div class="inner">
                                 <h3>{{ $users }}</h3>
 
-                                <p>Unique Users registered to use this platform in our farm</p>
+                                <p><b>Unique Users registered to use this platform in our farm</b></p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
                             </div>
-                            <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer"><i class="fas fas fa-user"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -92,16 +92,6 @@
 @endsection
 
 @push('scripts')
-<<<<<<< Updated upstream
-
-=======
-<script src="{{  asset('/dist/js/demo.js') }}"></script>
-<script src="{{  asset('/plugins/chart.js/Chart.min.js')  }}"></script>
-<script type="text/javascript">
-
-        
-</script>
->>>>>>> Stashed changes
 @endpush
 
 @push('styles')
