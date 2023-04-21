@@ -67,7 +67,7 @@
         body  {
             background-image: url('/dist/img/bg.jpg');
         background-size:cover;
-                -webkit-animation: slidein 20s;
+                -webkit-animation: slidein 40s;
                 animation: slidein 30s;
 
                 -webkit-animation-fill-mode: forwards;
