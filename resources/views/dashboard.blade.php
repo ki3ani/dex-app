@@ -138,7 +138,7 @@
     }],
     yAxes: [{
       gridLines : {
-        display : false,
+        display : true,
       }
     }]
   }
@@ -149,25 +149,29 @@ var values={!! json_encode($productionvalues,true) !!};
 var values1=[];
 var values2=[];
 var values3=[];
-var areaChartData=[];
+var values4=[];
+var values5=[];
+//var areaChartData=[];
 
 for(var x=0;x<values.length;x++){
 for(var y =0; y < values[x].length; y++){
   switch(x){
     case 0:
       values1.push(values[x][y].amount);
-      //console.log('1st day'+values1);
 
       break;
     case 1:
       values2.push(values[x][y].amount);
-     // console.log('2nd day'+values2);
 
       break;
     case 2:
       values3.push(values[x][y].amount);
-     // console.log('3rd day'+values3);
       break;
+    case 3:
+      values4.push(values[x][y].amount);
+      break;
+    case 4:
+      values5.push(values[x][y].amount);
   }
 
 }
@@ -182,34 +186,58 @@ datasets: [
       label               : labels[0],
       backgroundColor     : 'rgba(255,255,255,0.8)',
       borderColor         : 'rgba(60,141,188,0.8)',
-      pointRadius          : false,
-      pointColor          : '#3b8bba',
+      pointRadius         : 5,
+      pointColor          : 'rgba(60,141,188,1)',
       pointStrokeColor    : 'rgba(60,141,188,1)',
-      pointHighlightFill  : '#fff',
+      pointHighlightFill  : '#0ff',
       pointHighlightStroke: 'rgba(60,141,188,1)',
-      data                : values1,
+      lineTension: 0,
+      data                : values1
     },
     {
       label               : labels[1],
-      backgroundColor     : 'rgba(255,255,255, 1)',
-      borderColor         : 'rgba(210, 214, 222, 0)',
-      pointRadius         : false,
-      pointColor          : 'rgba(210, 214, 222, 1)',
-      pointStrokeColor    : '#c1c7d1',
-      pointHighlightFill  : '#fff',
-      pointHighlightStroke: 'rgba(220,220,220,1)',
-      data                : values2,
+      borderColor         : 'rgba(0, 214, 10, 0.8)',
+      pointRadius         : 5,
+      pointColor          : 'rgba(0, 214, 10, 1)',
+      pointStrokeColor    : 'rgba(0, 214, 10, 1)',
+      pointHighlightFill  : '#f0f',
+      pointHighlightStroke: 'rgba(0,220,220,1)',
+      lineTension: 0,
+      data                : values2
     },{
       label               : labels[2],
       backgroundColor     : 'rgba(255,255,255, 1)',
       borderColor         : 'rgba(220,0,0, 1)',
-      pointRadius         : false,
+      pointRadius         : 5,
       pointColor          : 'rgba(220,0,0, 1)',
-      pointStrokeColor    : '#c1c7d1',
-      pointHighlightFill  : '#fff',
+      pointStrokeColor    : 'rgba(220,0,0, 1)',
+      pointHighlightFill  : '#ff0',
       pointHighlightStroke: 'rgba(220,0,0,1)',
-      data                : values3,
-    },
+      lineTension: 0,
+      data                : values3
+    },{
+      label               : labels[3],
+      backgroundColor     : 'rgba(255,255,255, 1)',
+      borderColor         : 'rgba(20,50,200, 1)',
+      pointRadius         : 5,
+      pointColor          : 'rgba(20,50,200, 1)',
+      pointStrokeColor    : 'rgba(20,50,200, 1)',
+      pointHighlightFill  : '#ff0',
+      pointHighlightStroke: 'rgba(20,50,200,1)',
+      lineTension: 0,
+      data                : values4
+    },{
+      label               : labels[4],
+      backgroundColor     : 'rgba(255,255,255, 1)',
+      borderColor         : 'rgba(220,0,255, 1)',
+      pointRadius         : 5,
+      pointColor          : 'rgba(220,0,255, 1)',
+      pointStrokeColor    : 'rgba(220,0,255, 1)',
+      pointHighlightFill  : '#ff0',
+      pointHighlightStroke: 'rgba(220,0,255,1)',
+      lineTension: 0,
+      data                : values4
+    }
   ]
 }
 
@@ -219,6 +247,8 @@ datasets: [
     lineChartData.datasets[0].fill = false;
     lineChartData.datasets[1].fill = false;
     lineChartData.datasets[2].fill = false;
+    lineChartData.datasets[3].fill = false;
+    lineChartData.datasets[4].fill = false;
     lineChartOptions.datasetFill = false
 
     var lineChart = new Chart(lineChartCanvas, {
