@@ -143,17 +143,18 @@
     }]
   }
 }
-var labels =  {!! json_encode($labels) !!};
+var labelsvalues =  {!! json_encode($labels) !!};
 var values={!! json_encode($productionvalues,true) !!};
-//values=JSON.parse(JSON.stringify(values));
+//values=JSON.stringify(labels);
 var values1=[];
 var values2=[];
 var values3=[];
 var values4=[];
 var values5=[];
-//var areaChartData=[];
+var labels=[];
 
 for(var x=0;x<values.length;x++){
+  labels.push(labelsvalues[x].production_date)
 for(var y =0; y < values[x].length; y++){
   switch(x){
     case 0:
@@ -176,7 +177,7 @@ for(var y =0; y < values[x].length; y++){
 
 }
 }
-console.log(values[0].length);
+console.log(labels);
 
 
 var areaChartData = {
@@ -191,7 +192,7 @@ datasets: [
       pointStrokeColor    : 'rgba(60,141,188,1)',
       pointHighlightFill  : '#0ff',
       pointHighlightStroke: 'rgba(60,141,188,1)',
-      lineTension: 0,
+      lineTension: 0.5,
       data                : values1
     },
     {
@@ -202,7 +203,7 @@ datasets: [
       pointStrokeColor    : 'rgba(0, 214, 10, 1)',
       pointHighlightFill  : '#f0f',
       pointHighlightStroke: 'rgba(0,220,220,1)',
-      lineTension: 0,
+      lineTension: 0.5,
       data                : values2
     },{
       label               : labels[2],
@@ -213,7 +214,7 @@ datasets: [
       pointStrokeColor    : 'rgba(220,0,0, 1)',
       pointHighlightFill  : '#ff0',
       pointHighlightStroke: 'rgba(220,0,0,1)',
-      lineTension: 0,
+      lineTension: 0.5,
       data                : values3
     },{
       label               : labels[3],
@@ -224,7 +225,7 @@ datasets: [
       pointStrokeColor    : 'rgba(20,50,200, 1)',
       pointHighlightFill  : '#ff0',
       pointHighlightStroke: 'rgba(20,50,200,1)',
-      lineTension: 0,
+      lineTension: 0.5,
       data                : values4
     },{
       label               : labels[4],
@@ -235,7 +236,7 @@ datasets: [
       pointStrokeColor    : 'rgba(220,0,255, 1)',
       pointHighlightFill  : '#ff0',
       pointHighlightStroke: 'rgba(220,0,255,1)',
-      lineTension: 0,
+      lineTension: 0.5,
       data                : values4
     }
   ]

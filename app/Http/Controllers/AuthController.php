@@ -98,14 +98,17 @@ class AuthController extends Controller
             $daysproduction = DB::select('Select sum(amount) as sum from Production where production_date="'.date('Y-m-d').'"');
             $herd=Cow::all()->count();
             $users=User::all()->count();
-            $productionlist=collect(DB::select('SELECT tag,production_date,sum(amount) AS amount FROM Production GROUP BY tag,production_date ORDER By production_date ASC'));
-            //$productionlist=$productionlist->groupby('production_date');
-            $productionlist=$productionlist->groupby('production_date');
+            $productiondates=collect(DB::select('SELECT distinct(production_date) FROM Production'));
+            $productiondates->all();
+            $productionlist=collect(DB::select('SELECT tag,sum(amount) AS amount FROM Production GROUP BY tag,production_date ORDER By tag'));
+            $productionlist=$productionlist->groupby('tag');
             $productionlist->all();
-            //$dates = $this->generateDates($start, $end); // you fill zero valued dates
-            $labels=$productionlist->keys();
+            $dates = $this->generateDates($start, $end); // you fill zero valued dates
+
+            //$productiondates->merge($dates);
+            $labels=$productiondates;
             $productionvalues=$productionlist->values();
-            //dd($labels,);
+            //dd(json_stringify($productiondates));
             return view('dashboard',compact('production','daysproduction','production_time','herd','users','labels','productionvalues'));
         }
   
