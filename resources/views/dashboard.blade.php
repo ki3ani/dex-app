@@ -192,7 +192,7 @@ datasets: [
       pointStrokeColor    : 'rgba(60,141,188,1)',
       pointHighlightFill  : '#0ff',
       pointHighlightStroke: 'rgba(60,141,188,1)',
-      lineTension: 0.5,
+      lineTension: 0.4,
       data                : values1
     },
     {
@@ -203,7 +203,7 @@ datasets: [
       pointStrokeColor    : 'rgba(0, 214, 10, 1)',
       pointHighlightFill  : '#f0f',
       pointHighlightStroke: 'rgba(0,220,220,1)',
-      lineTension: 0.5,
+      lineTension: 0.4,
       data                : values2
     },{
       label               : labels[2],
@@ -214,7 +214,7 @@ datasets: [
       pointStrokeColor    : 'rgba(220,0,0, 1)',
       pointHighlightFill  : '#ff0',
       pointHighlightStroke: 'rgba(220,0,0,1)',
-      lineTension: 0.5,
+      lineTension: 0.4,
       data                : values3
     },{
       label               : labels[3],
@@ -225,7 +225,7 @@ datasets: [
       pointStrokeColor    : 'rgba(20,50,200, 1)',
       pointHighlightFill  : '#ff0',
       pointHighlightStroke: 'rgba(20,50,200,1)',
-      lineTension: 0.5,
+      lineTension: 0.4,
       data                : values4
     },{
       label               : labels[4],
@@ -236,8 +236,8 @@ datasets: [
       pointStrokeColor    : 'rgba(220,0,255, 1)',
       pointHighlightFill  : '#ff0',
       pointHighlightStroke: 'rgba(220,0,255,1)',
-      lineTension: 0.5,
-      data                : values4
+      lineTension: 0.4,
+      data                : values5
     }
   ]
 }
