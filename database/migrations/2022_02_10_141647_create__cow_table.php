@@ -15,6 +15,14 @@ class CreateCowTable extends Migration
     {
         Schema::create('Cow', function (Blueprint $table) {
             $table->id();
+            $table->string('tag')->unique();
+            $table->string('name');
+            $table->date('dob');
+            $table->string('gender');
+            $table->string('breed');
+            $table->string('parent_tag');
+            $table->string('currentState');
+            $table->date('served_on')->nullable();
             $table->timestamps();
         });
     }

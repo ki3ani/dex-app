@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('page_title','Produces - ')
+@section('title','Add Roles')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Add Produce</h1>
+                        <h1 class="m-0">Add Roles</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -28,35 +28,30 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form>
+                            <form action="{{ route('newrole') }}" method="POST">
+                                @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Role Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Select</label>
-                                        <select class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+                                        <label for="description">Description</label>
+                                        <textarea  class="form-control" id="description" name="description" placeholder="Enter Detailed Role Description" cols="60" rows="5"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="level">Priviledge Level(1-Operational,2-Supervisor,3-Admin)</label>
+                                        <select class="form-control" name="level" id="level">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
                                         </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Create Role</button>
                                 </div>
                             </form>
                         </div>

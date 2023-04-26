@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('page_title') {{config('app.display')}}</title>
+    <title>@yield('title')</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{asset('logo3.png')}}" alt="logo" height="60" width="60">
+        <img class="animation__shake" src="{{asset('logo.png')}}" alt="logo" height="96" width="96">
     </div>
 
     @section('navbar')
@@ -41,12 +41,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Right navbar links -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
+                        <a class="nav-link"   href="{{ url('/dashboard') }}" title="home">
+                        <i class="fa fa-home"></i>
+                        <!-- <span class="badge badge-warning navbar-badge">15</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="#" title="Logged in user">
                             <i class="far fa-user"></i>
                             <!-- <span class="badge badge-warning navbar-badge">15</span> -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item">
+                            <a href="{{ route('signout') }}" class="dropdown-item">
                                 <i class="fas fa-sign-out-alt mr-0"></i> Log out
                             </a>
                         </div>
@@ -66,9 +72,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
                 <!-- Brand Logo -->
-                <a href="{{URL::to('home')}}" class="brand-link">
-                    <img src="{{asset('logo3.png')}}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">{{config('app.display')}}</span>
+                <a href="{{URL::to('/')}}" class="brand-link">
+                    <img src="{{asset('logo.png')}}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                    <span class="brand-text font-weight-light">DairyMS</span>
                 </a>
 
                 <!-- Sidebar -->
@@ -80,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <img src="{{asset('dist/img/avatar3.png')}}" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">{{'User Name'}}</a>
+                            <a href="#" class="d-block"> {{ ucfirst(strtolower(Auth::user()->name))  }}</a>
                         </div>
                     </div>
 
@@ -101,7 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 }
 
                             -->
-
+                            
                             <li class="nav-item">
                                 <a href="{{URL::to('roles')}}" class="nav-link {{ (request()->is('role*')) ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-user-cog"></i>
@@ -122,12 +128,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a href="{{URL::to('cows')}}" class="nav-link {{ (request()->is('cow*')) ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-horse-head"></i>
                                     <p>
-                                        Cows
+                                        Herd
                                     </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{URL::to('produce')}}" class="nav-link {{ (request()->is('produce*')) ? 'active' : '' }}">
+                                <a href="{{URL::to('productions')}}" class="nav-link {{ (request()->is('produce*')) ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-hand-holding-water"></i>
                                     <p>
                                         Produce
@@ -163,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- Default to the left -->
                 <small>
-                    <strong>Copyright &copy;  <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+                    <strong></strong> 
                 </small>
             </footer>
     @show
@@ -178,7 +184,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
-<!-- Additional Scripts -->
+
 @stack('scripts')
 </body>
 </html>

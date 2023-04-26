@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 //including other classes
 //we use [use]
@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 //classic inheritance
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     //?? (why another one?)
     use Notifiable;
@@ -18,7 +18,7 @@ class User extends Authenticatable
      * The database table associated with this model class
      * @var string
      */
-    protected $table = "users";
+    protected $table = "User";
     protected $primaryKey = "user_id";
     /**
      * The attributes that are mass assignable.
@@ -27,7 +27,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
        'national_id','name', 'email', 'password',
-        'phone','birth_date','role_id'
+        'phone','dob','role_id'
     ];
 
     /**
@@ -52,7 +52,7 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function produce(){
-        return $this->hasMany('App\Produce','user_id','user_id');
+        return $this->hasMany('App\Production','user_id','user_id');
     }
 
 }

@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('page_title','Produce - ')
+@section('title','Roles')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Produce</h1>
+                        <h1 class="m-0">Roles</h1>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
@@ -23,30 +23,34 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{URL::to('produce/add')}}" class="btn btn-primary mb-2">Add <i class="fa fa-plus"></i> </a>
+                                <a href="{{URL::to('role/add')}}" class="btn btn-primary mb-2">Add <i class="fa fa-plus"></i> </a>
 
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th style="width: 10px">#</th>
-                                        <th>h1</th>
-                                        <th>h2</th>
-                                        <th>h3</th>
+                                        <th style="width: 10px">Role ID</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Level</th>
+                                        <th>Assigned Persons</th>
                                         <th style="width: 15px">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($roles as $role) 
+
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{ $role->role_id }}</td>
+                                            <td>{{ $role->name}}</td>
+                                            <td>{{ $role->description }}</td>
+                                            <td>{{ $role->level }}</td>
+                                            <td>{{ $role->assigned }}</td>
                                             <td>
                                                 <a href="#"><i class="fa fa-edit"></i> </a>
                                                 <a href="#"><i class="fa fa-trash"></i> </a>
                                             </td>
                                         </tr>
-
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

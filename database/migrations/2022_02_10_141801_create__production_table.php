@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProduceTable extends Migration
+class CreateProductionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateProduceTable extends Migration
      */
     public function up()
     {
-        Schema::create('Produce', function (Blueprint $table) {
+        Schema::create('Production', function (Blueprint $table) {
             $table->id();
+            $table->string('production_id')->unique();
+            $table->string('tag');
+            $table->date('production_date');
+            $table->string('production_period');
+            $table->float('amount');
+            $table->string('user_id');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateProduceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Produce');
+        Schema::dropIfExists('Production');
     }
 }
